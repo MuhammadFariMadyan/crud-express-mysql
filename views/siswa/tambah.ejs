@@ -1,0 +1,36 @@
+<%- include ../templates/header.ejs %>
+  <div class="container">
+    <br>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href="/siswa">Data Siswa</a></li>
+      <li class="breadcrumb-item active">Tambah Data Siswa</li>
+    </ol>
+    <h3>Tambah Data Siswa</h3>
+    <% if(alert.message != '') { %>
+    <div class="alert alert-<%= alert.status %>">
+      <%= alert.message %>
+    </div>
+    <% } %>
+    <form action="/siswa/create" method="post">
+      <div class="form-group">
+        <label for="nama"> Nama :</label>
+        <input type="text" value="<%= data.nama %>" class="form-control" name="nama" id="nama" >
+      </div>
+      <div class="form-group">
+        <label for="gender"> Jenis Kelamin :</label>
+        <input type="text" value="<%= data.gender %>" class="form-control" name="gender" id="kota">
+      </div>
+      <div class="form-group">
+        <label for="no_telp"> No. Telpon :</label>
+        <input type="text" value="<%= data.no_telp %>" class="form-control" name="no_telp" id="kota">
+      </div>
+      <div class="form-group">
+        <label for="alamat"> Alamat :</label>
+        <input type="text" value="<%= data.alamat %>" class="form-control" name="alamat" id="kota">
+      </div>
+      <button type="submit" class="btn btn-primary">Tambah</button>
+    </form>
+  </div>
+
+  <%- include ../templates/footer.ejs %>

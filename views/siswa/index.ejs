@@ -1,0 +1,73 @@
+<%- include ../templates/header.ejs %>
+  <div class="container">
+    <br>
+    <% if(alert.message != '') { %>
+    <div class="alert alert-<%= alert.status %>">
+      <%= alert.message %>
+    </div>
+    <% } %>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item">Data Siswa</li>
+    </ol>
+    <h3>Data Siswa</h3>
+    <br>
+    <a href="/siswa/create" class="btn btn-primary">Tambah Data</a>
+    <br>
+    <br>
+    <table class="table">
+      <thead>
+        <th>Id</th>
+        <th>Nama</th>
+        <th>Jenis Kelamin</th>
+        <th>Nomor Telpon</th>
+        <th>Alamat</th>
+        <th>Aksi</th>
+      </thead>
+      <tbody>
+        <% for (var i = 0; i < siswa.length; i++) { %>
+          <tr>
+            <td>
+              <%= siswa[i].id %>
+            </td>
+            <td>
+              <%= siswa[i].nama %>
+            </td>
+            <td>
+              <%= siswa[i].gender %>
+            </td>
+            <td>
+              <%= siswa[i].no_telp %>
+            </td>
+            <td>
+                <%= siswa[i].alamat %>
+              </td>
+            <td>
+              <a href="/siswa/<%= siswa[i].id %>/edit" class="btn btn-primary">Edit</a>
+              <button class="btn btn-sm btn-danger btn-delete" data-id="<%= siswa[i].id %>"> Delete </button>
+            </td>
+          </tr>
+          <% } %>
+      </tbody>
+    </table>
+    <% var paginationFor = "siswa" %>
+    <%- include ../templates/pagination.ejs %>
+  </div>
+  <script type="text/javascript">
+  $('.btn-delete').click(function(){
+    let id = $(this).attr('data-id');
+    swal({
+      title: "Yakin Ingin Menghapus Data Siswa ini?",
+      text: "Data yang dihapus, tidak bisa kembali lagi.",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location.assign(`/siswa/delete/${id}`);
+      }
+    });
+  });
+  </script>
+  <%- include ../templates/footer.ejs %>
