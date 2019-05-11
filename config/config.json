@@ -1,23 +1,23 @@
 {
-    "development": {
-      "username": "root",
-      "password": "",
-      "database": "db_node_siswas",
-      "host": "127.0.0.1",
-      "dialect": "mysql"
-    },
-    "test": {
-      "username": "root",
-      "password": null,
-      "database": "database_test",
-      "host": "127.0.0.1",
-      "dialect": "mysql"
-    },
-    "production": {
-      "username": "apmkqfeeitvnvt",
-      "password": "206f911b3f0643fa38d824e70d3518e7c2e8fa846aabd6e5cf8a75fca074143b",
-      "database": "d2o9nusln6u3nr",
-      "host": "ec2-54-83-204-6.compute-1.amazonaws.com",
-      "dialect": "postgres"
-    }
+  "development": {
+    "username": "root",
+    "password": "",
+    "database": "db_node_siswas",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "apmkqfeeitvnvt",
+    "password": "206f911b3f0643fa38d824e70d3518e7c2e8fa846aabd6e5cf8a75fca074143b",
+    "database": "d2o9nusln6u3nr",
+    "host": "ec2-54-83-204-6.compute-1.amazonaws.com",
+    "dialect": "postgres"
   }
+}

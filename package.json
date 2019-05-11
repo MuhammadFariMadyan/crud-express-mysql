@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Membuat website dengan framework expressjs",
   "scripts": {
-    "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "db_reset": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all",
     "db_start": "sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
   },
@@ -14,6 +14,7 @@
   "author": "FariMFM",
   "license": "MIT",
   "dependencies": {
+    "admin-lte": "^2.4.10",
     "body-parser": "^1.18.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
