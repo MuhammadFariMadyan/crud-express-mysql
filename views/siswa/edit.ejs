@@ -15,19 +15,19 @@
     <form action="/siswa/<%= siswa.id %>/edit"" method="post">
       <div class="form-group">
         <label for="nama"> Nama :</label>
-        <input type="text" value="<%= siswa.nama %>" class="form-control" name="nama" id="nama" >
+        <input type="text" value="<%= siswa.nama %>" class="form-control" name="nama" id="nama" required >
       </div>
       <div class="form-group">
         <label for="gender"> Jenis Kelamin :</label>
-        <input type="text" value="<%= siswa.gender %>" class="form-control" name="gender" id="kota">
+        <input type="text" value="<%= siswa.gender %>" class="form-control" name="gender" id="kota" required>
       </div>
       <div class="form-group">
         <label for="no_telp"> No. Telpon :</label>
-        <input type="text" value="<%= siswa.no_telp %>" class="form-control" name="no_telp" id="kota">
+        <input type="text" value="<%= siswa.no_telp %>" class="form-control" name="no_telp" id="kota" required>
       </div>
       <div class="form-group">
         <label for="alamat"> Alamat :</label>
-        <input type="text" value="<%= siswa.alamat %>" class="form-control" name="alamat" id="kota">
+        <input type="text" value="<%= siswa.alamat %>" class="form-control" name="alamat" id="kota" required>
       </div>
       <button type="submit" class="btn btn-primary">Ubah</button>
     </form>
