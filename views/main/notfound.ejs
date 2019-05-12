@@ -1,8 +1,30 @@
-<%- include ../templates/header.ejs %>
+<%- include ../templates/adminlte/header-top-nav.ejs %>
+<!-- Full Width Column -->
+<div class="content-wrapper">
   <div class="container">
-    <br>
-    <ol class="breadcrumb" >
-      <h3 style="text-align:center;">Halaman yang anda cari Tidak Ada </h3>
-    </ol>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Page Not Found
+      </h1>
+      <ol class="breadcrumb">
+        <li class="active"><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">Not Found Page</h3>
+        </div>
+        <div class="box-body" style="text-align: center">
+          <h2>Halaman Yang Anda Cari Tidak Ada</h2>
+        </div>
+        <!-- /.box-body -->
+      </div>
+    </section>
+
   </div>
-  <%- include ../templates/footer.ejs %>
+
+  <%- include ../templates/adminlte/footer.ejs %>

@@ -19,6 +19,12 @@ app.use(
   "/script-adminlte",
   express.static(path.join(__dirname, "/node_modules/admin-lte/"))
 );
+app.use(function (req, res, next) {
+  res.locals.stuff = {
+    url: req.originalUrl
+  }
+  next();
+});
 
 //body parser
 app.use(

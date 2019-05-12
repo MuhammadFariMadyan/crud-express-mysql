@@ -1,73 +1,94 @@
-<%- include ../templates/header.ejs %>
+<%- include ../templates/adminlte/header-top-nav.ejs %>
+<!-- Full Width Column -->
+<div class="content-wrapper">
   <div class="container">
     <br>
-    <% if(alert.message != '') { %>
-    <div class="alert alert-<%= alert.status %>">
-      <%= alert.message %>
-    </div>
-    <% } %>
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/">Home</a></li>
-      <li class="breadcrumb-item">Data Siswa</li>
-    </ol>
-    <h3>Data Siswa</h3>
-    <br>
-    <a href="/siswa/create" class="btn btn-primary">Tambah Data</a>
-    <br>
-    <br>
-    <table class="table">
-      <thead>
-        <th>Id</th>
-        <th>Nama</th>
-        <th>Jenis Kelamin</th>
-        <th>Nomor Telpon</th>
-        <th>Alamat</th>
-        <th>Aksi</th>
-      </thead>
-      <tbody>
-        <% for (var i = 0; i < siswa.length; i++) { %>
-          <tr>
-            <td>
-              <%= siswa[i].id %>
-            </td>
-            <td>
-              <%= siswa[i].nama %>
-            </td>
-            <td>
-              <%= siswa[i].gender %>
-            </td>
-            <td>
-              <%= siswa[i].no_telp %>
-            </td>
-            <td>
-                <%= siswa[i].alamat %>
-              </td>
-            <td>
-              <a href="/siswa/<%= siswa[i].id %>/edit" class="btn btn-primary">Edit</a>
-              <button class="btn btn-sm btn-danger btn-delete" data-id="<%= siswa[i].id %>"> Delete </button>
-            </td>
-          </tr>
-          <% } %>
-      </tbody>
-    </table>
-    <% var paginationFor = "siswa" %>
-    <%- include ../templates/pagination.ejs %>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Data Siswa
+        <small>Read All Data Siswa</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Data Siswa</li>
+      </ol>
+      <% if(alert.message != '') { %>
+      <br>
+      <div class="alert alert-<%= alert.status %>" style="text-align: center;">
+        <strong><%= alert.message %></strong>
+      </div>
+      <% } %>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">Data Siswa</h3> <a href="/siswa/create" class="btn btn-primary">+</a>
+        </div>
+        <div class="box-body table-responsive no-padding">
+          <table id="example1" class="table table-hover">
+            <thead>
+              <th>No.</th>
+              <th>Nama</th>
+              <th>Jenis Kelamin</th>
+              <th>Nomor Telpon</th>
+              <th>Alamat</th>
+              <th>Aksi</th>
+            </thead>
+            <tbody>
+              <% for (var i = 0; i < siswa.length; i++) { %>
+              <tr>
+                <td>
+                  <%= i+1 %>
+                </td>
+                <td>
+                  <%= siswa[i].nama %>
+                </td>
+                <td>
+                  <%= siswa[i].gender %>
+                </td>
+                <td>
+                  <%= siswa[i].no_telp %>
+                </td>
+                <td>
+                  <%= siswa[i].alamat %>
+                </td>
+                <td>
+                  <a class="btn btn-primary" href="/siswa/<%= siswa[i].id %>/edit">Edit</a>
+                  <button onclick="myFunction(<%= siswa[i].id %>)" class="btn btn-danger" data-id="<%= siswa[i].id %>">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+          <% var paginationFor = "siswa" %>
+          <%- include ../templates/pagination.ejs %>
+
+        </div>
+        <!-- /.box-body -->
+      </div>
+    </section>
+
   </div>
   <script type="text/javascript">
-  $('.btn-delete').click(function(){
-    let id = $(this).attr('data-id');
-    swal({
-      title: "Yakin Ingin Menghapus Data Siswa ini?",
-      text: "Data yang dihapus, tidak bisa kembali lagi.",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
-        window.location.assign(`/siswa/delete/${id}`);
-      }
-    });
-  });
+    function myFunction(id) {
+      let idSiswa = id;
+      swal({
+        title: "Yakin Ingin Menghapus Data Siswa ini?",
+        text: "Data yang dihapus, tidak bisa kembali lagi.",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+        .then((willDelete) => {
+          if (willDelete) {
+            window.location.assign(`/siswa/delete/${idSiswa}`);
+          }
+        });
+    };
   </script>
-  <%- include ../templates/footer.ejs %>
+  <%- include ../templates/adminlte/footer.ejs %>
