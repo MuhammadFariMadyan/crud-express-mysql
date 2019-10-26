@@ -25,7 +25,7 @@
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
     "pg": "^7.4.3",
-    "sequelize": "5.2.12",
+    "sequelize": "5.19.8",
     "sweetalert": "^2.1.2"
   },
   "repository": {
