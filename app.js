@@ -37,6 +37,6 @@ app.use(
 app.use("/", router);
 app.use("/siswa", siswa);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3300;
 
-app.listen(port, () => console.log(`Server starts on ${port}`));
+app.listen(port, () => console.log(`Server start on port ${port}`));
